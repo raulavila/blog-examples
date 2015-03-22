@@ -1,0 +1,13 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <bean id="itemDAO" class="com.raulavila.dependencies.dip.withdip.ItemDAOImpl" />
+    <bean id="bigDecimalCalculator" class="com.raulavila.dependencies.dip.withdip.BigDecimalCalculator"/>
+
+    <bean id="inventoryService" class="com.raulavila.dependencies.dip.withdip.InventoryService">
+        <constructor-arg ref="itemDAO"/>
+        <constructor-arg ref="bigDecimalCalculator"/>
+    </bean>
+</beans>
