@@ -13,7 +13,8 @@ public class CompositeApp {
                 "spring-beans-composite.xml");
 
         @SuppressWarnings("unchecked")
-        Validator<NewUserInfo> newInfoUserValidator = context.getBean("newUserInfoValidator", Validator.class);
+        Validator<NewUserInfo> newInfoUserValidator = 
+                context.getBean("newUserInfoValidator", Validator.class);
 
         NewUserInfo newUserInfo = new NewUserInfo();
 
