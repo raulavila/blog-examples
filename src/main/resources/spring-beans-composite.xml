@@ -1,0 +1,39 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <bean id="newUserInfoValidator"
+          class="com.raulavila.patterns.composite.CompositeValidator">
+        <constructor-arg>
+            <list>
+                <ref bean="nameAndAddressValidator" />
+                <ref bean="ageValidator" />
+                <ref bean="passwordValidator" />
+            </list>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="nameAndAddressValidator"
+          class="com.raulavila.patterns.composite.CompositeValidator">
+        <constructor-arg>
+            <list>
+                <ref bean="nameValidator" />
+                <ref bean="addressValidator" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="nameValidator"
+          class="com.raulavila.patterns.composite.NameValidator"/>
+    
+    <bean id="addressValidator"
+          class="com.raulavila.patterns.composite.AddressValidator"/>
+
+    <bean id="ageValidator"
+          class="com.raulavila.patterns.composite.AgeValidator"/>
+
+    <bean id="passwordValidator"
+          class="com.raulavila.patterns.composite.PasswordValidator"/>
+
+</beans>
